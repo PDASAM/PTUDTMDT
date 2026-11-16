@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 4 - Menu ngang CSS</title>
+
+    <style>
+        /* Định dạng chung */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: white;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+
+        /* Bỏ dấu đầu dòng và khoảng cách mặc định */
+        .menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            font-size: 0;
+        }
+
+        /* Hiển thị các mục trên cùng một hàng */
+        .menu li {
+            display: inline-block;
+            width: 140px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            background-color: #00ffff;
+            text-align: center;
+        }
+
+        /* Định dạng chữ liên kết */
+        .menu li a {
+            display: block;
+            padding: 3px 0;
+            color: blue;
+            font-family: "Times New Roman", serif;
+            font-size: 24px;
+            text-decoration: underline;
+        }
+
+        /* Hiệu ứng khi rê chuột */
+        .menu li a:hover {
+            background-color: #00dddd;
+        }
+
+        /* Hiệu ứng khi dùng bàn phím */
+        .menu li a:focus-visible {
+            outline: 2px solid blue;
+            outline-offset: -2px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #087d83;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BÀI TẬP 4 - MENU NGANG BẰNG CSS</h1>
+
+    <!-- Danh sách HTML theo đề bài -->
+    <ul class="menu">
+        <li><a href="#">TMDT</a></li>
+        <li><a href="#">ERP</a></li>
+        <li><a href="#">MIS</a></li>
+        <li><a href="#">DS</a></li>
+    </ul>
+
+    <a class="back-link" href="./index.html">
+        ← Quay lại danh sách bài tập
+    </a>
+</body>
+</html>

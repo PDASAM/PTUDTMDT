@@ -1,71 +1,297 @@
 
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài tập CSS Tuần 3 - PTUD WEB/TMĐT</title>
+
+    <meta name="description"
+          content="Tổng hợp bài tập CSS Tuần 3 môn Phát triển ứng dụng Thương mại điện tử - Phạm Duy Anh - UEH.">
+
+    <title>Bài tập CSS Tuần 3 - Phạm Duy Anh</title>
+
+    <!-- CSS CHÍNH: KHÔI PHỤC LAYOUT -->
     <link rel="stylesheet" href="./css/style.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+    <!-- CSS BỔ SUNG CHO TRANG TỔNG HỢP -->
+    <style>
+        .student-info {
+            text-align: center;
+        }
+
+        .student-avatar {
+            display: block;
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #087d83;
+            margin: 16px auto 22px;
+        }
+
+        .student-info p {
+            margin: 8px 0;
+        }
+
+        .student-info a {
+            overflow-wrap: anywhere;
+        }
+
+        .student-info .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 5px 10px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links i {
+            margin-right: 6px;
+        }
+
+        #exercise-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+        }
+
+        #exercise-list li {
+            margin-bottom: 12px;
+        }
+
+        #exercise-list a {
+            display: block;
+            padding: 14px 18px;
+            background-color: #f0f8f8;
+            border: 1px solid #d5eaea;
+            border-left: 4px solid #087d83;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #075e64;
+            font-weight: 500;
+            transition:
+                background-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        #exercise-list a:hover {
+            background-color: #dff2f2;
+            transform: translateX(4px);
+        }
+
+        #exercise-list a:focus-visible {
+            outline: 3px solid #087d83;
+            outline-offset: 2px;
+        }
+
+        #exercise-list a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .social-links a {
+                display: block;
+                margin: 12px 0;
+            }
+
+            #exercise-list a {
+                padding: 12px;
+            }
+        }
+    </style>
 </head>
+
 <body>
+
+    <!-- HEADER -->
     <header>
         <h1>BÀI TẬP CSS - TUẦN 3</h1>
-        <p>Môn: Phát triển ứng dụng TMĐT</p>
-        <p>Giảng viên: TS. Nguyễn Mạnh Tuấn</p>
+
+        <p>
+            Môn: Phát triển ứng dụng TMĐT
+        </p>
+
+        <p>
+            Giảng viên: TS. Nguyễn Mạnh Tuấn
+        </p>
     </header>
 
     <main>
-        <section>
+
+        <!-- THÔNG TIN SINH VIÊN -->
+        <section class="student-info">
+
             <h2>Thông tin sinh viên</h2>
-            <p>Họ và tên: Phạm Duy Anh</p>
-            <p>MSSV: 31241026448</p>
-            <p>Lớp: Phát triển ứng dụng TMĐT sáng thứ 4</p>
-            <!-- Bổ sung ảnh đại diện và social links -->
-        </section>
 
-        <section>
-            <h2>Danh sách bài tập</h2>
+            <!-- ẢNH ĐẠI DIỆN -->
+            <img
+                src="./images/avatar.jpg"
+                alt="Ảnh đại diện của Phạm Duy Anh"
+                class="student-avatar"
+            >
+
             <p>
-                Các bài tập sẽ được cập nhật và
-                liên kết tại đây sau khi hoàn thành.
+                <strong>Họ và tên:</strong>
+                Phạm Duy Anh
             </p>
-         
-<ul id="exercise-list">
-    <li>
-        <a href="./BaiTap1.html">
-            Bài 1: CSS Diner & CSS Speedrun
-        </a>
-    </li>
 
-    <li>
-        <a href="./BaiTap2.html">
-            Bài 2: Định dạng văn bản bằng CSS
-        </a>
-    </li>
+            <p>
+                <strong>MSSV:</strong>
+                31241026448
+            </p>
 
-    <li>
-        <a href="./BaiTap4.html">
-            Bài 4: Tạo menu ngang bằng CSS
-        </a>
-    </li>
+            <p>
+                <strong>Trường:</strong>
+                Đại học Kinh tế Thành phố Hồ Chí Minh (UEH)
+            </p>
 
-    
-<li>
-    <a href="./BaiTap5.html">
-        Bài 5: Best Shared Hosting Company
-    </a>
-</li>
+            <p>
+                <strong>Khoa:</strong>
+                Công nghệ Thông tin Kinh doanh
+            </p>
 
-    <li>Bài 6: My Portfolio (Chưa thực hiện)</li>
-    <li>Bài 7: Website Layout (Chưa thực hiện)</li>
-    <li>Bài 8: CSS nâng cao (Chưa thực hiện)</li>
-</ul>
+            <p>
+                <strong>Học phần:</strong>
+                Phát triển ứng dụng TMĐT
+            </p>
+
+            <p>
+                <strong>Giảng viên:</strong>
+                TS. Nguyễn Mạnh Tuấn
+            </p>
+
+            <!-- SOCIAL LINKS -->
+            <div class="social-links">
+
+                <a href="https://github.com/PDASAM"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <i class="fa-brands fa-github"
+                       aria-hidden="true"></i>
+                    GitHub
+                </a>
+
+                <a href="https://www.facebook.com/phamduyanh1207/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <i class="fa-brands fa-facebook"
+                       aria-hidden="true"></i>
+                    Facebook
+                </a>
+
+            </div>
 
         </section>
+
+        <!-- DANH SÁCH BÀI TẬP -->
+        <section>
+
+            <h2>Danh sách bài tập</h2>
+
+            <p>
+                Tổng hợp các bài thực hành CSS Tuần 3,
+                bao gồm trò chơi luyện tập CSS Selector,
+                định dạng văn bản, thiết kế giao diện
+                và bố cục website.
+            </p>
+
+            <ul id="exercise-list">
+
+                <!-- BÀI 1 -->
+                <li>
+                    <a href="./BaiTap1.html">
+                        <i class="fa-solid fa-gamepad"
+                           aria-hidden="true"></i>
+                        Bài 1: CSS Diner & CSS Speedrun
+                    </a>
+                </li>
+
+                <!-- BÀI 2 -->
+                <li>
+                    <a href="./BaiTap2.html">
+                        <i class="fa-solid fa-font"
+                           aria-hidden="true"></i>
+                        Bài 2: Định dạng văn bản bằng CSS
+                    </a>
+                </li>
+
+                <!-- BÀI 4 -->
+                <li>
+                    <a href="./BaiTap4.html">
+                        <i class="fa-solid fa-bars"
+                           aria-hidden="true"></i>
+                        Bài 4: Tạo menu ngang bằng CSS
+                    </a>
+                </li>
+
+                <!-- BÀI 5 -->
+                <li>
+                    <a href="./BaiTap5.html">
+                        <i class="fa-solid fa-server"
+                           aria-hidden="true"></i>
+                        Bài 5: Best Shared Hosting Company
+                    </a>
+                </li>
+
+                <!-- BÀI 6 -->
+                <li>
+                    <a href="./BaiTap6.html">
+                        <i class="fa-solid fa-images"
+                           aria-hidden="true"></i>
+                        Bài 6: My Portfolio
+                    </a>
+                </li>
+
+                <!-- BÀI 7 -->
+                <li>
+                    <a href="./BaiTap7.html">
+                        <i class="fa-solid fa-table-columns"
+                           aria-hidden="true"></i>
+                        Bài 7: Bố cục Website bằng CSS
+                    </a>
+                </li>
+
+                <!-- BÀI 8A -->
+                <li>
+                    <a href="./BaiTap8.html">
+                        <i class="fa-solid fa-code"
+                           aria-hidden="true"></i>
+                        Bài 8a: Heroes of JavaScript and HTML
+                    </a>
+                </li>
+
+            </ul>
+
+        </section>
+
     </main>
 
+    <!-- FOOTER -->
     <footer>
-        <p>UEH - Khoa Công nghệ Thông tin Kinh doanh</p>
+        <p>
+            © 2026 Phạm Duy Anh
+        </p>
+
+        <p>
+            UEH - Khoa Công nghệ Thông tin Kinh doanh
+        </p>
     </footer>
+
 </body>
 </html>

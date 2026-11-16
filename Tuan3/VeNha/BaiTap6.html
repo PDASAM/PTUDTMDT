@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 6 - My Portfolio</title>
+
+    <style>
+        /* ĐỊNH DẠNG CHUNG */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        /* KHUNG PORTFOLIO */
+        .portfolio {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 40px 25px;
+            background-color: #f7f7f7;
+        }
+
+        /* TIÊU ĐỀ */
+        .portfolio h2 {
+            margin: 0;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .portfolio h2::after {
+            content: "";
+            display: block;
+            width: 55px;
+            height: 2px;
+            margin: 15px auto 25px;
+            background-color: #55c6bd;
+        }
+
+        /* THANH DANH MỤC */
+        .list-tab {
+            list-style: none;
+            margin: 0 0 30px;
+            padding: 0;
+            text-align: center;
+        }
+
+        .list-tab li {
+            display: inline-block;
+            margin: 5px 12px;
+        }
+
+        .list-tab a {
+            color: #333333;
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .list-tab li:first-child a {
+            color: #19b8ad;
+            font-weight: bold;
+        }
+
+        .list-tab a:hover {
+            color: #19b8ad;
+        }
+
+        .list-tab a:focus-visible {
+            outline: 2px solid #19b8ad;
+            outline-offset: 4px;
+        }
+
+        /* DANH SÁCH HÌNH ẢNH */
+        .galerry {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .galerry li {
+            min-width: 0;
+        }
+
+        .galerry a {
+            display: block;
+            overflow: hidden;
+            background-color: #9aca7c;
+        }
+
+        .galerry img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 350 / 260;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .galerry a:hover img {
+            transform: scale(1.05);
+        }
+
+        /* LIÊN KẾT QUAY LẠI */
+        .back-link {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            color: #087d83;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .portfolio {
+                margin: 20px;
+                padding: 30px 15px;
+            }
+
+            .galerry {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio h2 {
+                font-size: 24px;
+            }
+
+            .galerry {
+                grid-template-columns: 1fr;
+            }
+
+            .list-tab li {
+                margin: 6px 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="portfolio">
+        <h2>MY PORTFOLIO</h2>
+
+        <!-- DANH MỤC -->
+        <ul class="list-tab">
+            <li><a href="#portfolio-gallery">All</a></li>
+            <li><a href="#portfolio-gallery">Web App</a></li>
+            <li><a href="#portfolio-gallery">UI/UX</a></li>
+            <li><a href="#portfolio-gallery">Graphics Design</a></li>
+            <li><a href="#portfolio-gallery">Mobile App</a></li>
+            <li><a href="#portfolio-gallery">Branding</a></li>
+            <li><a href="#portfolio-gallery">Marketing</a></li>
+        </ul>
+
+        <!-- THƯ VIỆN 9 HÌNH -->
+        <ul class="galerry" id="portfolio-gallery">
+
+            <li>
+                <a href="#portfolio-gallery">
+                    <img src="./images/img_350x260.png "
+                         alt="Portfolio 1">
+                </a>
+            </li>
+
+            <li>
+                <a href="#portfolio-gallery">
+                    <img src="./images/img_350x260.png "
+                         alt="Portfolio 2">
+                </a>
+            </li>
+
+            <li>
+                <a href="#portfolio-gallery">
+                    <img src="./images/img_350x260.png "
+                         alt="Portfolio 3">
+                </a>
+            </li>
+
+            <li>
+                <a href="#portfolio-gallery">
+                    <img src="./images/img_350x260.png "
+                         alt="Portfolio 4">
+                </a>
+            </li>
+
+            <li>
+                <a href="#portfolio-gallery">
+                    <img src="./images/img_350x260.png "
+                         alt="Portfolio 5">
+                </a>
+            </li>
+
+            <li>
+                <a href="#portfolio-gallery">
+                    <img src="./images/img_350x260.png "
+                         alt="Portfolio 6">
+                </a>
+            </li>
+
+            <li>
+                <a href="#portfolio-gallery">
+                    <img src="./images/img_350x260.png "
+                         alt="Portfolio 7">
+                </a>
+            </li>
+
+            <li>
+                <a href="#portfolio-gallery">
+                    <img src="./images/img_350x260.png "
+                         alt="Portfolio 8">
+                </a>
+            </li>
+
+            <li>
+                <a href="#portfolio-gallery">
+                    <img src="./images/img_350x260.png "
+                         alt="Portfolio 9">
+                </a>
+            </li>
+
+        </ul>
+    </section>
+
+    <a href="./index.html" class="back-link">
+        ← Quay lại danh sách bài tập
+    </a>
+
+</body>
+</html>

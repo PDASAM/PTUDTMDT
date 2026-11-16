@@ -50,3 +50,23 @@ footer {
     padding: 20px;
     color: #666;
 }
+
+/* Thông tin sinh viên - Bài tập Tuần 3 */
+
+.student-info {
+    text-align: center;
+}
+
+.student-avatar {
+    display: block;
+    width: 130px;
+    height: 130px;
+    margin: 15px auto 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #087d83;
+}
+
+.student-info p {
+    margin: 8px 0;
+}

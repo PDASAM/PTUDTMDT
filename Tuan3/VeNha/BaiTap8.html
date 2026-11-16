@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài tập 8a - Heroes of JavaScript and HTML</title>
+
+<!-- Font Awesome 7 -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+    <link rel="stylesheet" href="./css/style.css">
+  <style>
+    /* Định dạng chung */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px 16px;
+      background: #fff;
+      color: #191919;
+      font-family: "Times New Roman", Times, serif;
+    }
+
+    /* 1. Khung chứa lớn */
+    #root {
+      width: 960px;
+      max-width: 100%;
+      min-height: 710px;
+      margin: 0 auto;
+      padding: 34px 44px 65px;
+      background: #cecece;
+      font-size: 16px;
+    }
+
+    /* 2. Header */
+    #root > .header {
+      margin: 0 0 22px;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    /* 3. Mô tả giới thiệu */
+    #root > .description {
+      margin: 0 0 45px;
+      padding: 21px 28px;
+      border: 2px solid #fff;
+      border-radius: 12px;
+      background: #888;
+      line-height: 1.4;
+      font-size: 15px;
+    }
+
+    .remark {
+      margin: 0 0 28px;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    /* Danh sách 4 nhân vật */
+    .heroes-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 4. Hero-item */
+    .hero-item {
+      display: block;
+      position: relative;
+      min-width: 0;
+      height: 390px;
+    }
+
+    /* 5. Tên từng nhân vật */
+    .hero-item h2 {
+      margin: 0 0 10px;
+      font-size: 17px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* 6. Mô tả nằm chồng lên ảnh */
+    .hero-item > .description {
+    position: absolute;
+    z-index: 2;
+    top: 38px;
+    left: 0;
+
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 10px 12px;
+
+    border: 2px solid #fff;
+    border-radius: 5px;
+
+    background: rgba(110, 110, 110, 0.78);
+    font-size: 16px;
+    line-height: 1.2;
+    text-align: justify;
+}
+
+    /* 7. Hình ảnh nhân vật */
+    .hero-item img {
+      position: absolute;
+      z-index: 1;
+      top: 175px;
+      left: 0;
+
+      width: 100%;
+      height: 205px;
+      object-fit: cover;
+
+      border: 1px solid #ccc;
+      border-radius: 14px;
+    }
+
+    /* Liên kết quay lại */
+    .back-link {
+      display: block;
+      width: fit-content;
+      margin: 24px auto 0;
+      font: 15px Arial, sans-serif;
+      color: #087d83;
+    }
+
+/* Bài 9 - Font Awesome */
+.hero-item h2 .fa-solid {
+    margin-right: 5px;
+    color: #444444;
+    font-size: 15px;
+}
+
+    /* Responsive cho tablet */
+    @media (max-width: 900px) {
+      #root {
+        min-height: 0;
+        padding: 28px 24px 40px;
+      }
+
+      .heroes-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 18px;
+      }
+
+      .hero-item {
+        height: 385px;
+      }
+    }
+
+    /* Responsive cho điện thoại */
+    @media (max-width: 540px) {
+      body {
+        padding: 12px;
+      }
+
+      #root {
+        padding: 24px 16px 30px;
+      }
+
+      #root > .header {
+        font-size: 24px;
+      }
+
+      #root > .description {
+        padding: 16px;
+        margin-bottom: 32px;
+      }
+
+      .heroes-list {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-item {
+        max-width: 340px;
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+
+    <h1 class="header">
+      Heroes of JavaScript and HTML
+    </h1>
+
+    <p class="description">
+      <strong>Heroes of JavaScript and HTML</strong>
+      is a "Heroes of Might and Magic"-like game,
+      but for code nerds. Each hero has its unique
+      coding abilities and based on them he can
+      develop software applications.
+    </p>
+
+    <div class="container">
+      <p class="remark">
+        Currently the game has only four hero types:
+      </p>
+
+      <ul class="heroes-list">
+
+        <!-- FRONT-END DEVELOPER -->
+        <li class="hero-item">
+          <h2><i class="fa-solid fa-code" aria-hidden="true"></i>
+    Front-end Developer</h2>
+
+          <p class="description">
+            Being the ultra masters of JavaScript,
+            the order of the
+            <strong>Front-enders</strong>
+            is known to create user interfaces,
+            that fill the users with absolute
+            pleasure.
+          </p>
+
+          <img
+            src="./css1/imgs/fe.png"
+            alt="Front-end Developer">
+        </li>
+
+        <!-- MOBILE DEVELOPER -->
+        <li class="hero-item">
+          <h2><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+    Mobile Developer</h2>
+
+          <p class="description">
+            The movement of the
+            <strong>Mobile developers</strong>
+            is brand new, yet in their short time
+            they already manage to amaze the
+            peoples of the worlds and beyond
+            with create applications.
+          </p>
+
+          <img
+            src="./css1/imgs/mobile.jpg"
+            alt="Mobile Developer">
+        </li>
+
+        <!-- WEB DEVELOPER -->
+        <li class="hero-item">
+          <h2><i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
+    Web Developer</h2>
+
+          <p class="description">
+            The sect of the
+            <strong>Web developers</strong>
+            is the oldest there is. They prefer
+            the old ways and rarely move to
+            modern stuff. The Old Religion
+            gives them power of small gods.
+          </p>
+
+          <img
+            src="./css1/imgs/web.jpg"
+            alt="Web Developer">
+        </li>
+
+        <!-- QA ENGINEER -->
+        <li class="hero-item">
+          <h2><i class="fa-solid fa-bug" aria-hidden="true"></i>
+    QA Engineer</h2>
+
+          <p class="description">
+            The <strong>QAs</strong> are the
+            desiders of fates! They always
+            have the final word, and all
+            gods and mortals are bound
+            to obey them.
+          </p>
+
+          <img
+            src="./css1/imgs/qa.jpg"
+            alt="QA Engineer">
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <a class="back-link" href="./index.html">
+    ← Quay lại danh sách bài tập
+  </a>
+</body>
+</html>
