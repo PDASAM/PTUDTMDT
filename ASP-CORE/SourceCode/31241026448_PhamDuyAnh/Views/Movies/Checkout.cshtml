@@ -1,0 +1,106 @@
+
+@model _31241026448_PhamDuyAnh.Models.ShippingDetail
+
+@{
+    ViewData["Title"] = "Thanh toán - CineHub";
+}
+
+<div class="container my-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8 col-lg-6">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-header bg-dark text-white p-4">
+                    <h2>Thanh toán đơn hàng</h2>
+                    <p class="mb-0">CINEHUB. - Movie Store</p>
+                </div>
+
+                <div class="card-body p-4">
+
+                    <p class="text-muted">
+                        Vui lòng nhập thông tin giao hàng
+                        để hoàn tất đơn hàng.
+                    </p>
+
+                    <form asp-action="Checkout" method="post">
+
+                        <div asp-validation-summary="All"
+                             class="text-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Name"
+                                   class="form-label">
+                                Họ và tên
+                            </label>
+
+                            <input asp-for="Name"
+                                   class="form-control"
+                                   placeholder="Nhập họ và tên" />
+
+                            <span asp-validation-for="Name"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email"
+                                   class="form-label"></label>
+
+                            <input asp-for="Email"
+                                   class="form-control"
+                                   placeholder="example@email.com" />
+
+                            <span asp-validation-for="Email"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Address"
+                                   class="form-label"></label>
+
+                            <input asp-for="Address"
+                                   class="form-control"
+                                   placeholder="Nhập địa chỉ giao hàng" />
+
+                            <span asp-validation-for="Address"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Mobile"
+                                   class="form-label">
+                                Số điện thoại
+                            </label>
+
+                            <input asp-for="Mobile"
+                                   class="form-control"
+                                   placeholder="Nhập số điện thoại" />
+
+                            <span asp-validation-for="Mobile"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-dark w-100">
+                            Hoàn tất đơn hàng
+                        </button>
+
+                        <a asp-action="Cart"
+                           class="btn btn-outline-secondary w-100 mt-2">
+                            Quay lại giỏ hàng
+                        </a>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,106 @@
+
+@model _31241026448_PhamDuyAnh.Models.Movie
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@{
+    ViewData["Title"] = Model.Title + " - CineHub";
+
+    var isAdmin = (await AuthorizationService
+        .AuthorizeAsync(User, "ManageCatalog")).Succeeded;
+}
+
+<div class="container my-5">
+
+    <a asp-action="Index"
+       class="btn btn-outline-secondary mb-4">
+        &larr; Quay lại danh sách phim
+    </a>
+
+    <div class="card shadow-sm border-0 p-4">
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <img src="@(Model.PicturePath ?? "/images/no-image.jpg")"
+                     alt="@Model.Title"
+                     class="img-fluid w-100 rounded"
+                     style="aspect-ratio: 2/3; object-fit: cover;" />
+
+            </div>
+
+            <div class="col-md-8">
+
+                <span class="badge bg-dark mb-3">
+                    @(Model.GenreObj?.Name ?? Model.Genre)
+                </span>
+
+                <h1 class="fw-bold">
+                    @Model.Title
+                </h1>
+
+                <p class="fw-bold"
+                   style="color: #c38b13;">
+                    ★ @Model.Rated/5
+                </p>
+
+                <p class="text-muted">
+                    Ngày mở bán:
+                    @Model.ReleaseDate.ToString("dd/MM/yyyy")
+                </p>
+
+                <hr />
+
+                <h5>Giới thiệu phim</h5>
+
+                <p style="line-height: 1.8;">
+                    @Model.Summary
+                </p>
+
+                <hr />
+
+                <h2 class="text-danger fw-bold mb-4">
+                    @Model.Price.ToString("N0",
+                        new System.Globalization.CultureInfo("vi-VN")) ₫
+                </h2>
+
+                <a asp-action="AddToCart"
+                   asp-route-id="@Model.ID"
+                   class="btn btn-dark btn-lg px-5"
+                   style="background-color: #18304e;">
+                    Mua ngay
+                </a>
+
+                @if (isAdmin)
+                {
+                    <div class="mt-4">
+
+                        <hr />
+
+                        <p class="text-muted small">
+                            Quản lý sản phẩm
+                        </p>
+
+                        <a asp-action="Edit"
+                           asp-route-id="@Model.ID"
+                           class="btn btn-outline-primary">
+                            Chỉnh sửa
+                        </a>
+
+                        <a asp-action="Delete"
+                           asp-route-id="@Model.ID"
+                           class="btn btn-outline-danger">
+                            Xóa phim
+                        </a>
+
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,32 @@
+
+# Build files
+**/bin/
+**/obj/
+**/publish/
+**/publish.zip
+
+# IDE files
+**/.vs/
+**/.vscode/
+*.user
+*.suo
+
+# Sensitive configuration
+**/appsettings.Production.json
+**/secrets.json
+.env
+
+# Local database
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Temporary files
+**/logs/
+*.log
+*.tmp
+*.sql
+**/images.zip
+**/images_for_github.zip

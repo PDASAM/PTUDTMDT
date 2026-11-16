@@ -1,0 +1,173 @@
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using _31241026448_PhamDuyAnh.Data;
+using _31241026448_PhamDuyAnh.Models;
+using Microsoft.AspNetCore.Authorization;
+
+namespace _31241026448_PhamDuyAnh.Controllers
+{
+    public class GenresController : Controller
+    {
+        private readonly ApplicationDbContext _context;
+
+        public GenresController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        // GET: Genres
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Genres.ToListAsync());
+        }
+
+        // GET: Genres/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var genre = await _context.Genres
+                .FirstOrDefaultAsync(m => m.ID == id);
+
+            if (genre == null)
+            {
+                return NotFound();
+            }
+
+            return View(genre);
+        }
+
+        // GET: Genres/Create
+        [Authorize(Policy = "ManageCatalog")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Genres/Create
+        [Authorize(Policy = "ManageCatalog")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(
+            [Bind("ID,Name")] Genre genre)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(genre);
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(genre);
+        }
+
+        // GET: Genres/Edit/5
+        [Authorize(Policy = "ManageCatalog")]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var genre = await _context.Genres.FindAsync(id);
+
+            if (genre == null)
+            {
+                return NotFound();
+            }
+
+            return View(genre);
+        }
+
+        // POST: Genres/Edit/5
+        [Authorize(Policy = "ManageCatalog")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(
+            int id, [Bind("ID,Name")] Genre genre)
+        {
+            if (id != genre.ID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(genre);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!GenreExists(genre.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(genre);
+        }
+
+        // GET: Genres/Delete/5
+        [Authorize(Policy = "ManageCatalog")]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var genre = await _context.Genres
+                .FirstOrDefaultAsync(m => m.ID == id);
+
+            if (genre == null)
+            {
+                return NotFound();
+            }
+
+            return View(genre);
+        }
+
+        // POST: Genres/Delete/5
+        [Authorize(Policy = "ManageCatalog")]
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var genre = await _context.Genres.FindAsync(id);
+
+            if (genre != null)
+            {
+                _context.Genres.Remove(genre);
+            }
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool GenreExists(int id)
+        {
+            return _context.Genres.Any(e => e.ID == id);
+        }
+    }
+}

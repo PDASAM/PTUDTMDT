@@ -1,0 +1,54 @@
+
+@{
+    ViewData["Title"] = "Đặt hàng thành công - CineHub";
+}
+
+<div class="container my-5">
+
+    <div class="card shadow-sm border-0
+                text-center p-5 mx-auto"
+         style="max-width: 650px;">
+
+        <div class="text-success mb-3"
+             style="font-size: 70px;">
+            ✓
+        </div>
+
+        <h1 class="text-success">
+            Đặt hàng thành công!
+        </h1>
+
+        <p class="text-muted">
+            Cảm ơn bạn đã mua sắm tại CineHub.
+        </p>
+
+        <p>
+            Mã đơn hàng:
+            <strong>#@ViewBag.OrderId</strong>
+        </p>
+
+        @if (ViewBag.EmailSent == true)
+        {
+            <p>
+                Email xác nhận đơn hàng đã được gửi
+                đến địa chỉ email của bạn.
+            </p>
+        }
+        else
+        {
+            <p class="text-muted">
+                Đơn hàng đã được lưu thành công,
+                nhưng chưa gửi được email xác nhận.
+            </p>
+        }
+
+        <hr />
+
+        <a asp-controller="Movies"
+           asp-action="Index"
+           class="btn btn-dark">
+            Tiếp tục mua sắm
+        </a>
+
+    </div>
+</div>

@@ -1,0 +1,113 @@
+
+@model IEnumerable<_31241026448_PhamDuyAnh.Models.Genre>
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@{
+    ViewData["Title"] = "Danh sách thể loại - CineHub";
+
+    var isAdmin = (await AuthorizationService
+        .AuthorizeAsync(User, "ManageCatalog")).Succeeded;
+}
+
+<div class="container my-5">
+
+    <div class="rounded text-white p-4 mb-4"
+         style="background: linear-gradient(135deg, #111827, #263d60);">
+
+        <h1 class="fw-bold">Danh sách thể loại</h1>
+
+        <p class="mb-0">
+            CINEHUB. - Movie Store
+        </p>
+
+    </div>
+
+    <div class="d-flex justify-content-between
+                align-items-center flex-wrap gap-2 mb-4">
+
+        <a asp-controller="Movies"
+           asp-action="Index"
+           class="btn btn-outline-secondary">
+            &larr; Quay lại cửa hàng
+        </a>
+
+        @if (isAdmin)
+        {
+            <a asp-action="Create"
+               class="btn btn-primary">
+                + Thêm thể loại
+            </a>
+        }
+
+    </div>
+
+    <div class="card shadow-sm border-0">
+
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle mb-0">
+
+                <thead class="table-dark">
+                    <tr>
+                        <th class="ps-4">Mã thể loại</th>
+                        <th>Tên thể loại</th>
+                        <th class="text-end pe-4">Thao tác</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td class="ps-4">
+                                #@item.ID
+                            </td>
+
+                            <td class="fw-bold">
+                                @item.Name
+                            </td>
+
+                            <td class="text-end pe-4">
+
+                                <a asp-action="Details"
+                                   asp-route-id="@item.ID"
+                                   class="btn btn-sm btn-outline-secondary">
+                                    Chi tiết
+                                </a>
+
+                                @if (isAdmin)
+                                {
+                                    <a asp-action="Edit"
+                                       asp-route-id="@item.ID"
+                                       class="btn btn-sm btn-outline-primary">
+                                        Sửa
+                                    </a>
+
+                                    <a asp-action="Delete"
+                                       asp-route-id="@item.ID"
+                                       class="btn btn-sm btn-outline-danger">
+                                        Xóa
+                                    </a>
+                                }
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <p class="text-muted mt-3">
+        Tổng số thể loại: @Model.Count()
+    </p>
+
+</div>
