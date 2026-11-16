@@ -1,0 +1,17 @@
+
+@model _31241026448_PhamDuyAnh.Models.HoaDon
+
+<div class="navbar-text ms-3">
+
+    <a class="btn btn-outline-primary btn-sm"
+       asp-controller="Movies"
+       asp-action="Cart">
+
+        Giỏ hàng
+        (@Model.ChiTietHoaDons.Sum(x => x.SoLuong))
+
+        - @Model.TongTien.ToString("N0") ₫
+
+    </a>
+
+</div>

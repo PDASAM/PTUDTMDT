@@ -1,0 +1,187 @@
+
+@model IEnumerable<_31241026448_PhamDuyAnh.Models.Movie>
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@{
+    ViewData["Title"] = "CineHub - Movie Store";
+
+    var isAdmin = (await AuthorizationService
+        .AuthorizeAsync(User, "ManageCatalog")).Succeeded;
+}
+
+<style>
+    .store-banner {
+        background: linear-gradient(135deg, #111827, #263d60);
+        color: white;
+        padding: 40px 30px;
+        border-radius: 12px;
+        margin: 20px 0 30px;
+    }
+
+    .store-banner h1 {
+        font-size: 38px;
+        font-weight: bold;
+        letter-spacing: 3px;
+    }
+
+    .movie-card {
+        height: 100%;
+        overflow: hidden;
+        border-radius: 12px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .movie-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .movie-poster {
+        width: 100%;
+        aspect-ratio: 2 / 3;
+        object-fit: cover;
+    }
+
+    .movie-title {
+        font-size: 21px;
+        font-weight: bold;
+    }
+
+    .movie-price {
+        color: #dc3545;
+        font-size: 23px;
+        font-weight: bold;
+    }
+
+    .movie-rating {
+        color: #c38b13;
+        font-weight: bold;
+    }
+
+    .movie-summary {
+        font-size: 14px;
+        color: #6c757d;
+    }
+
+    .buy-button {
+        background: #18304e;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-weight: bold;
+    }
+
+    .buy-button:hover {
+        background: #263d60;
+        color: white;
+    }
+</style>
+
+<div class="store-banner">
+    <h1>CINEHUB.</h1>
+    <h4>Khám phá thế giới điện ảnh</h4>
+    <p>Movie Store - Cửa hàng phim trực tuyến</p>
+    <small>31241026448 - Phạm Duy Anh</small>
+</div>
+
+<div class="d-flex flex-wrap justify-content-between
+            align-items-center mb-4 gap-2">
+
+    <h2>Danh sách phim</h2>
+
+    @if (isAdmin)
+    {
+        <div>
+            <a asp-controller="Genres"
+               asp-action="Index"
+               class="btn btn-outline-secondary">
+                Quản lý thể loại
+            </a>
+
+            <a asp-action="Create"
+               class="btn btn-primary">
+                + Thêm phim
+            </a>
+        </div>
+    }
+
+</div>
+
+<div class="row g-4">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-12 col-sm-6 col-lg-4">
+
+            <div class="card movie-card">
+
+                <img src="@(item.PicturePath ?? "/images/no-image.jpg")"
+                     alt="@item.Title"
+                     class="movie-poster"
+                     loading="lazy" />
+
+                <div class="card-body d-flex flex-column">
+
+                    <h3 class="movie-title">
+                        @item.Title
+                    </h3>
+
+                    <p class="text-muted mb-2">
+                        @(item.GenreObj?.Name ?? item.Genre)
+                    </p>
+
+                    <p class="movie-rating">
+                        ★ @item.Rated/5
+                    </p>
+
+                    <p class="movie-summary">
+                        @item.Summary
+                    </p>
+
+                    <p class="small text-muted">
+                        Ngày mở bán:
+                        @item.ReleaseDate.ToString("dd/MM/yyyy")
+                    </p>
+
+                    <p class="movie-price mt-auto">
+                        @item.Price.ToString("N0",
+                            new System.Globalization.CultureInfo("vi-VN")) ₫
+                    </p>
+
+                    <a asp-action="AddToCart"
+                       asp-route-id="@item.ID"
+                       class="btn buy-button w-100">
+                        Mua ngay
+                    </a>
+
+                    <div class="d-flex justify-content-center
+                                gap-3 mt-3">
+
+                        <a asp-action="Details"
+                           asp-route-id="@item.ID">
+                            Chi tiết
+                        </a>
+
+                        @if (isAdmin)
+                        {
+                            <a asp-action="Edit"
+                               asp-route-id="@item.ID">
+                                Sửa
+                            </a>
+
+                            <a asp-action="Delete"
+                               asp-route-id="@item.ID"
+                               class="text-danger">
+                                Xóa
+                            </a>
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
