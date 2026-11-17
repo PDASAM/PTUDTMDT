@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lab 09 | DOM and Events</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; font-family: Arial, sans-serif;
+            background: #f4f6fb; color: #1e293b;
+        }
+        header {
+            background: linear-gradient(120deg, #172554, #2563eb);
+            color: white; padding: 55px 20px; text-align: center;
+        }
+        header h1 { font-size: 36px; margin: 12px 0; }
+        header p { color: #dbeafe; }
+        main { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+        }
+        .card {
+            display: block; padding: 24px; border-radius: 14px;
+            background: white; border: 1px solid #e2e8f0;
+            text-decoration: none; color: inherit;
+            transition: transform .2s, box-shadow .2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,.1);
+        }
+        .card span { color: #2563eb; font-weight: bold; font-size: 13px; }
+        .card h2 { font-size: 19px; margin: 12px 0; }
+        .card p { color: #2563eb; font-size: 14px; }
+        footer { text-align: center; padding: 30px; color: #64748b; }
+    </style>
+</head>
+<body>
+    <header>
+        <p>PHAT TRIEN UNG DUNG THUONG MAI DIEN TU</p>
+        <h1>Lab 09 - DOM and Events</h1>
+        <p>Pham Duy Anh | MSSV: 31241026448</p>
+        <p>8 Exercises - JavaScript DOM & Events</p>
+    </header>
+
+    <main>
+        <h2>Exercise Directory</h2>
+        <p>Practice selecting DOM elements, event handling,
+           debugging, form interactions and validation.</p>
+
+        <div class="grid">
+            <a class='card' href='Exercise01/index.html'><span>Exercise 9.1</span><h2>Basic DOM Selection</h2><p>View exercise &rarr;</p></a>
+<a class='card' href='Exercise02/index.html'><span>Exercise 9.2</span><h2>DOM Family Relations</h2><p>View exercise &rarr;</p></a>
+<a class='card' href='Exercise03/index.html'><span>Exercise 9.3</span><h2>Modifying the DOM</h2><p>View exercise &rarr;</p></a>
+<a class='card' href='Exercise04/index.html'><span>Exercise 9.4</span><h2>Simple Event Handling</h2><p>View exercise &rarr;</p></a>
+<a class='card' href='Exercise05/index.html'><span>Exercise 9.5</span><h2>Responding to Load Events</h2><p>View exercise &rarr;</p></a>
+<a class='card' href='Exercise06/index.html'><span>Exercise 9.6</span><h2>Debugging Events</h2><p>View exercise &rarr;</p></a>
+<a class='card' href='Exercise07/index.html'><span>Exercise 9.7</span><h2>Working with Forms</h2><p>View exercise &rarr;</p></a>
+<a class='card' href='Exercise08/index.html'><span>Exercise 9.8</span><h2>Form Validation</h2><p>View exercise &rarr;</p></a>
+        </div>
+    </main>
+
+    <footer>
+        2026 - Pham Duy Anh | University of Economics Ho Chi Minh City
+    </footer>
+</body>
+</html>
