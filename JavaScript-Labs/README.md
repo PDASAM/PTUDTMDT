@@ -44,11 +44,11 @@ Các thư mục Lab vẫn giữ lại các tệp HTML, CSS, JavaScript, hình �
 
 ## Truy cập website
 
-- **GitHub Repository:** https://github.com/PDASAM/ecommerce-ui-improvement/tree/main/JavaScript-Labs
-- **GitHub Pages (sau khi triển khai):** https://pdasam.github.io/ecommerce-ui-improvement/JavaScript-Labs/
-- **Lab 08:** https://pdasam.github.io/ecommerce-ui-improvement/JavaScript-Labs/Lab08/
-- **Lab 09:** https://pdasam.github.io/ecommerce-ui-improvement/JavaScript-Labs/Lab09/
-- **Lab 10:** https://pdasam.github.io/ecommerce-ui-improvement/JavaScript-Labs/Lab10/
+- **GitHub Repository:** https://github.com/PDASAM/PTUDTMDT/tree/main/JavaScript-Labs
+- **GitHub Pages (sau khi triển khai):** https://pdasam.github.io/PTUDTMDT/JavaScript-Labs/
+- **Lab 08:** https://pdasam.github.io/PTUDTMDT/JavaScript-Labs/Lab08/
+- **Lab 09:** https://pdasam.github.io/PTUDTMDT/JavaScript-Labs/Lab09/
+- **Lab 10:** https://pdasam.github.io/PTUDTMDT/JavaScript-Labs/Lab10/
 
 Mở trang portfolio và chọn Lab cần kiểm tra, sau đó nhấp vào từng Exercise. Các bài được xây dựng để chạy dưới dạng trang web tĩnh trên GitHub Pages. Bài 10.9–10.10 sử dụng Open-Meteo Geocoding API thay cho dịch vụ cũ trong tài liệu vì cần endpoint HTTPS phù hợp với GitHub Pages.
 
