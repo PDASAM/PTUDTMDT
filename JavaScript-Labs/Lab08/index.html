@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 08 | JavaScript Foundations</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6fb;
+            color: #20283d;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(120deg, #172554, #2563eb);
+            color: white;
+            padding: 55px 24px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 12px 0;
+            font-size: 36px;
+        }
+
+        header p {
+            color: #dbeafe;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .intro {
+            margin-bottom: 28px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 14px;
+            padding: 22px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.09);
+        }
+
+        .number {
+            font-size: 13px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 14px;
+            min-height: 45px;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #2563eb;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 28px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>PHÁT TRIỂN ỨNG DỤNG THƯƠNG MẠI ĐIỆN TỬ</div>
+        <h1>Lab 08 – JavaScript Foundations</h1>
+        <p>Phạm Duy Anh | MSSV: 31241026448</p>
+        <p>11 Exercises · JavaScript Fundamentals</p>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+            <h2>Danh sách bài thực hành</h2>
+            <p>
+                Lab 08 giúp tôi làm quen với cú pháp JavaScript,
+                cách nhúng mã vào HTML, sử dụng Browser Console,
+                làm việc với mảng, hàm và đối tượng.
+            </p>
+        </section>
+
+        <div class="grid" id="exerciseList"></div>
+    </main>
+
+    <footer>
+        © 2026 Phạm Duy Anh · University of Economics Ho Chi Minh City
+    </footer>
+
+    <script>
+        const exercises = [
+            ["Enabling / Disabling JavaScript",
+             "Kiểm tra trang web khi bật và tắt JavaScript."],
+
+            ["Embedded JavaScript",
+             "Nhúng JavaScript vào HTML và hiển thị hộp thoại."],
+
+            ["External JavaScript",
+             "Liên kết file JavaScript ngoài vào trang HTML."],
+
+            ["Using NOSCRIPT",
+             "Hiển thị nội dung thay thế khi JavaScript bị tắt."],
+
+            ["Browser Console",
+             "Phát hiện lỗi và kiểm tra chương trình bằng Console."],
+
+            ["Built-in JavaScript Objects",
+             "Sử dụng String, Date và Math."],
+
+            ["Arrays",
+             "Thao tác với mảng và tạo bảng lịch HTML."],
+
+            ["JavaScript Functions",
+             "Khai báo hàm, truyền tham số và phạm vi biến."],
+
+            ["Functions as Objects",
+             "Hàm ẩn danh, hàm lồng nhau và callback."],
+
+            ["Creating JavaScript Objects",
+             "Tạo đối tượng, constructor và phương thức."],
+
+            ["Arrays of Objects",
+             "Duyệt mảng đối tượng và hiển thị thông tin quốc gia."]
+        ];
+
+        const container = document.getElementById("exerciseList");
+
+        exercises.forEach((exercise, index) => {
+            const number = String(index + 1).padStart(2, "0");
+
+            const card = document.createElement("article");
+            card.className = "card";
+
+            card.innerHTML = `
+                <span class="number">EXERCISE 8.${index + 1}</span>
+                <h3>${exercise[0]}</h3>
+                <p>${exercise[1]}</p>
+                <a href="Exercise${number}/">
+                    Xem bài thực hành →
+                </a>
+            `;
+
+            container.appendChild(card);
+        });
+    </script>
+
+</body>
+</html>
