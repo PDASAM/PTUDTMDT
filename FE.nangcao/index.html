@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tổng hợp nội dung học Front-end nâng cao và bài thực hành Responsive Web Design của Phạm Duy Anh.">
+    <title>Front-end nâng cao | Phạm Duy Anh</title>
+    <style>
+        :root {
+            --ink: #17253b;
+            --muted: #607087;
+            --orange: #ee6935;
+            --cream: #fff8f0;
+            --border: #e7eaf0;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            background: #f6f8fc;
+            color: var(--ink);
+            font: 16px/1.7 system-ui, -apple-system, "Segoe UI", sans-serif;
+        }
+        a { color: inherit; }
+        .container { width: min(1100px, calc(100% - 36px)); margin: auto; }
+
+        .topbar { background: #fff; border-bottom: 1px solid var(--border); }
+        .topbar .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding-block: 15px;
+        }
+        .brand { font-size: 18px; font-weight: 800; letter-spacing: .02em; text-decoration: none; }
+        .brand span { color: var(--orange); }
+        .topbar nav { display: flex; flex-wrap: wrap; gap: 20px; }
+        .topbar nav a { text-decoration: none; color: var(--muted); font-weight: 600; }
+        .topbar nav a:hover { color: var(--orange); }
+
+        .hero {
+            background: linear-gradient(125deg, #14253d 0%, #27446a 100%);
+            color: #fff;
+            padding: 78px 0 86px;
+        }
+        .eyebrow {
+            display: inline-block;
+            padding: 5px 13px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, .12);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .04em;
+        }
+        h1 { max-width: 770px; margin: 18px 0; font-size: clamp(32px, 5vw, 54px); line-height: 1.16; }
+        .hero p { max-width: 760px; color: #d8e4f1; font-size: 17px; }
+        .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+        .btn {
+            display: inline-block;
+            padding: 12px 19px;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 750;
+            transition: transform .2s, background-color .2s;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-primary { background: var(--orange); color: #fff; }
+        .btn-primary:hover { background: #d85123; }
+        .btn-outline { border-color: #8296ad; color: #fff; }
+        .btn-outline:hover { background: rgba(255, 255, 255, .1); }
+
+        main { padding: 46px 0 70px; }
+        section { margin-bottom: 48px; }
+        h2 { margin: 0 0 8px; font-size: clamp(24px, 3vw, 30px); }
+        .intro { margin: 0 0 24px; color: var(--muted); }
+        .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+        .card, .exercise {
+            padding: 26px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0 8px 28px rgba(28, 45, 68, .04);
+        }
+        .card .number { color: var(--orange); font-weight: 800; font-size: 14px; }
+        .card h3 { margin: 8px 0; font-size: 20px; }
+        .card p { margin: 0; color: var(--muted); }
+        code { padding: 2px 6px; border-radius: 5px; background: #f1f3f8; color: #9e431e; }
+        .exercise { border-left: 5px solid var(--orange); background: var(--cream); }
+        .exercise h3 { margin: 0 0 10px; font-size: 23px; }
+        .exercise p { margin: 0 0 12px; }
+        .exercise ul { padding-left: 21px; }
+        .exercise li { margin: 7px 0; }
+        .exercise .btn { margin-top: 10px; }
+        .note { color: var(--muted); font-size: 14px; }
+        footer { padding: 26px 0; border-top: 1px solid var(--border); text-align: center; color: var(--muted); }
+        footer p { margin: 4px 0; }
+
+        @media (max-width: 700px) {
+            .hero { padding: 58px 0 64px; }
+            .grid { grid-template-columns: 1fr; }
+            .card, .exercise { padding: 21px; }
+            .actions .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="container">
+            <a class="brand" href="./index.html">FE<span>.</span>NANGCAO</a>
+            <nav aria-label="Điều hướng chính">
+                <a href="#kien-thuc">Kiến thức</a>
+                <a href="#thuc-hanh">Bài thực hành</a>
+                <a href="#tai-lieu">Tài liệu</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+        <div class="container">
+            <span class="eyebrow">PTUDTMĐT · 18/11/2026</span>
+            <h1 id="page-title">Chương 5: Front-end nâng cao</h1>
+            <p>
+                Ghi chú nội dung học và thực hành xây dựng giao diện đáp ứng (Responsive Web Design)
+                từ tài liệu của TS. Nguyễn Mạnh Tuấn.
+            </p>
+            <p><strong>Sinh viên:</strong> Phạm Duy Anh · <strong>MSSV:</strong> 31241026448 · <strong>Trường:</strong> UEH</p>
+            <div class="actions">
+                <a class="btn btn-primary" href="./Bai1.html">Xem Bài 1 – Responsive</a>
+                <a class="btn btn-outline" href="#kien-thuc">Xem nội dung học</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="kien-thuc">
+            <h2>Kiến thức trọng tâm</h2>
+            <p class="intro">Những nội dung chính được trình bày trong tài liệu Chương 5.</p>
+            <div class="grid">
+                <article class="card">
+                    <span class="number">01 / RESPONSIVE</span>
+                    <h3>Responsive Web Design</h3>
+                    <p>Thiết kế giao diện phù hợp với điện thoại, máy tính bảng và máy tính; sử dụng thẻ <code>viewport</code> và bố cục linh hoạt để hạn chế tràn ngang.</p>
+                </article>
+                <article class="card">
+                    <span class="number">02 / CSS</span>
+                    <h3>Media Queries</h3>
+                    <p>Sử dụng <code>@media</code>, <code>max-width</code>, <code>min-width</code> và <code>print</code> để thay đổi cách hiển thị theo kích thước màn hình hoặc chế độ in.</p>
+                </article>
+                <article class="card">
+                    <span class="number">03 / LAYOUT</span>
+                    <h3>Flexbox và hình ảnh</h3>
+                    <p>Sắp xếp phần tử với <code>display: flex</code>, <code>flex-wrap</code>, <code>flex-basis</code>; chọn hình thích hợp theo màn hình bằng <code>&lt;picture&gt;</code> và <code>&lt;source&gt;</code>.</p>
+                </article>
+                <article class="card">
+                    <span class="number">04 / FRAMEWORK</span>
+                    <h3>Bootstrap</h3>
+                    <p>Tìm hiểu <code>container</code>, hệ thống lưới 12 cột, các breakpoint <code>col-sm-*</code>, <code>col-md-*</code> và thanh điều hướng responsive.</p>
+                </article>
+            </div>
+            <p class="note">Ngoài ra, tài liệu còn giới thiệu các chủ đề Front-end nâng cao khác: jQuery, JavaScript nâng cao, Sass và React.</p>
+        </section>
+
+        <section id="thuc-hanh">
+            <h2>Bài tập thực hành</h2>
+            <p class="intro">Truy cập bài làm được lưu trong cùng thư mục <code>FE.nangcao</code>.</p>
+            <article class="exercise">
+                <h3>Bài 1: Tạo giao diện Responsive</h3>
+                <p>Thực hành bố cục hai vùng LEFT và RIGHT bằng HTML, CSS và Media Queries.</p>
+                <ul>
+                    <li>Ở màn hình rộng: LEFT chiếm 70%, RIGHT chiếm 30%.</li>
+                    <li>Khi chiều rộng không quá 768px: bố cục chuyển thành một cột.</li>
+                    <li>Ở khoảng 321–479px: ẩn vùng RIGHT.</li>
+                    <li>Khi in: ẩn vùng LEFT và cho RIGHT chiếm toàn bộ chiều rộng.</li>
+                    <li>Thực hành hiển thị hình ảnh phù hợp với kích thước khung nhìn.</li>
+                </ul>
+                <a class="btn btn-primary" href="./Bai1.html">Mở bài thực hành →</a>
+            </article>
+        </section>
+
+        <section id="tai-lieu">
+            <h2>Tài liệu tham khảo</h2>
+            <p>Slide <strong>Chương 5 – Advance Font-end</strong>, TS. Nguyễn Mạnh Tuấn.</p>
+            <a href="https://drive.google.com/file/d/1b1uRoCfU5e47oc4jbJuGVsbh8HcE6GEb/view"
+               target="_blank" rel="noopener noreferrer">Xem bài giảng trên Google Drive →</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Phát triển ứng dụng Thương mại điện tử · UEH</p>
+            <p>© 2026 Phạm Duy Anh – 31241026448</p>
+        </div>
+    </footer>
+</body>
+</html>
